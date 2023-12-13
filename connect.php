@@ -10,5 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+
+// Thiết lập ký tự cho kết nối CSDL
+mysqli_set_charset($conn, "utf8mb4");
 ?>

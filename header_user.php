@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["admin"])) {
+if (!isset($_SESSION["giangvien"])) {
     echo "<script language=javascript>
     alert('Bạn không có quyền trên trang này!'); 
     window.location='login.php';
@@ -15,7 +15,7 @@ if (!isset($_SESSION["admin"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="format_admin.css">
+    <link rel="stylesheet" href="format_user.css">
     <title>Trang admin</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script>
@@ -58,9 +58,9 @@ if (!isset($_SESSION["admin"])) {
 <body>
 <?php
     include("connect.php");
-    $sql = "select * from admin ";
-    $userlogin = $_SESSION["admin"];
-    $sql2 = "select * from admin where email='" . $userlogin . "'";
+    $sql = "select * from giangvien ";
+    $userlogin = $_SESSION["giangvien"];
+    $sql2 = "select * from giangvien where email='" . $userlogin . "'";
     $kq = mysqli_query($conn, $sql) or die("Không thể xuất thông tin người dùng ");
     $kq2 = mysqli_query($conn, $sql2) or die("Không thể xuất thông tin người dùng ");
     $admins = mysqli_fetch_array($kq);
@@ -70,45 +70,21 @@ if (!isset($_SESSION["admin"])) {
     <div class="container">
         <div class="b-left">
             <div class="b-ava">
-                <img src="./image/<?php echo $admin_login["AnhDD"]; ?>" alt="Profile Picture">
-                <label><?php echo $admin_login["TenAD"]; ?></label>
+                <p><ion-icon name="person"></ion-icon><p>
+                <label><?php echo $admin_login["HoTenGV"]; ?></label>
             </div>
             <div class="s-left">
-                <a href="admin.php" class="s-left-item">
+                <a href="#" class="s-left-item">
                     <ion-icon name="home"></ion-icon>
                     <p>Trang chủ</p>
                 </a>
-                <a href="QLGV.php" class="s-left-item">
-                    <ion-icon name="people"></ion-icon>
-                    <p>Quản lý giảng viên</p>
+                <a href="#" class="s-left-item">
+                    <ion-icon name="pencil"></ion-icon>
+                    <p>Đăng ký lịch thi</p>
                 </a>
-                <a href="QLBM.php" class="s-left-item">
-                    <ion-icon name="business"></ion-icon>
-                    <p>Quản lý bộ môn</p>
-                </a>
-                <a href="QLL.php" class="s-left-item">
-                    <ion-icon name="school"></ion-icon>
-                    <p>Quản lý lớp</p>
-                </a>
-                <a href="QLLT.php" class="s-left-item">
-                    <ion-icon name="calendar-number"></ion-icon>
-                    <p>Quản lý lịch thi</p>
-                </a>
-                <a href="QLMH.php" class="s-left-item">
-                    <ion-icon name="book"></ion-icon>
-                    <p>Quản lý môn học</p>
-                </a>
-                <a href="QLNH.php" class="s-left-item">
-                    <ion-icon name="calendar"></ion-icon>
-                    <p>Quản lý năm học</p>
-                </a>
-                <a href="QLHT.php" class="s-left-item">
+                <a href="#" class="s-left-item">
                     <ion-icon name="create"></ion-icon>
-                    <p>Quản lý hình thức</p>
-                </a>
-                <a href="PCCT.php" class="s-left-item">
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                    <p>Xét duyệt lịch thi</p>
+                    <p>Xem lịch thi</p>
                 </a>
                 <a href="#" class="s-left-item">
                     <ion-icon name="key"></ion-icon>
