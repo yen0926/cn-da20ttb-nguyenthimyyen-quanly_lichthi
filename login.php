@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Đăng nhập</title>
     <style>
     /* Định dạng giao diện */
     *{
@@ -82,7 +82,7 @@
 </head>
 <body>
     <div align="left" class="login-container">
-      <img align="center" src="image/tvu_set.png" alt="logo">
+      <img align="center" src="image/tvu_set.jpg" alt="logo">
       <h2>Đăng nhập</h2>
       <form action="login_handling.php" method="post">
         <div class="input-group">

@@ -74,39 +74,35 @@ if (!isset($_SESSION["admin"])) {
                 <label><?php echo $admin_login["TenAD"]; ?></label>
             </div>
             <div class="s-left">
-                <a href="admin.php" class="s-left-item">
-                    <ion-icon name="home"></ion-icon>
-                    <p>Trang chủ</p>
-                </a>
-                <a href="QLGV.php" class="s-left-item">
-                    <ion-icon name="people"></ion-icon>
-                    <p>Quản lý giảng viên</p>
-                </a>
-                <a href="QLBM.php" class="s-left-item">
+                <a href="ql_bomon.php" class="s-left-item">
                     <ion-icon name="business"></ion-icon>
                     <p>Quản lý bộ môn</p>
                 </a>
-                <a href="QLL.php" class="s-left-item">
+                <a href="ql_giangvien.php" class="s-left-item">
+                    <ion-icon name="people"></ion-icon>
+                    <p>Quản lý giảng viên</p>
+                </a>
+                <a href="ql_lop.php" class="s-left-item">
                     <ion-icon name="school"></ion-icon>
                     <p>Quản lý lớp</p>
                 </a>
-                <a href="QLLT.php" class="s-left-item">
-                    <ion-icon name="calendar-number"></ion-icon>
-                    <p>Quản lý lịch thi</p>
-                </a>
-                <a href="QLMH.php" class="s-left-item">
-                    <ion-icon name="book"></ion-icon>
-                    <p>Quản lý môn học</p>
-                </a>
-                <a href="QLNH.php" class="s-left-item">
+                <a href="ql_namhoc.php" class="s-left-item">
                     <ion-icon name="calendar"></ion-icon>
                     <p>Quản lý năm học</p>
                 </a>
-                <a href="QLHT.php" class="s-left-item">
+                <a href="ql_họcky.php" class="s-left-item">
+                    <ion-icon name="calendar"></ion-icon>
+                    <p>Quản lý học kỳ</p>
+                </a>
+                <a href="ql_monhoc.php" class="s-left-item">
+                    <ion-icon name="book"></ion-icon>
+                    <p>Quản lý môn học</p>
+                </a>
+                <a href="ql_hinhthuc.php" class="s-left-item">
                     <ion-icon name="create"></ion-icon>
                     <p>Quản lý hình thức</p>
                 </a>
-                <a href="PCCT.php" class="s-left-item">
+                <a href="ql_xetduyet.php" class="s-left-item">
                     <ion-icon name="checkmark-circle"></ion-icon>
                     <p>Xét duyệt lịch thi</p>
                 </a>
