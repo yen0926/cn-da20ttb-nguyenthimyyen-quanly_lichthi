@@ -1,0 +1,5 @@
+.header h3,
+.header p {
+    display: inline;
+    margin-right: 40px; /* Điều chỉnh khoảng cách giữa các phần tử */
+}

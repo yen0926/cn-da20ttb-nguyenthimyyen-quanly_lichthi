@@ -9,14 +9,14 @@ include("header_ad.php");
 
 <div>
     <div class="top-center">
-        <p>Quản lý năm học</p>
+        <p>Quản lý hình thức thi</p>
     </div>
     <div class="table-center">
         <div class="btn-center">
             <div class="btn-center-bt">
-                <a href="them_namhoc.php" class="button button-them">
+                <a href="them_hinhthuc.php" class="button button-them">
                     <ion-icon name="add-outline"></ion-icon>
-                    <p>Thêm năm học</p>
+                    <p>Thêm hình thức thi</p>
                 </a>
                 <a href="#" class="button button-in">
                     <ion-icon name="print-outline"></ion-icon>
@@ -39,15 +39,13 @@ include("header_ad.php");
             <table width="100%" class="table-content">
                 <tr style="background-color:#CDD0CB; font-weight:600;">
                     <td width="3%"><input type="checkbox"></td>
-                    <td width="7%">Mã năm học</td>
-                    <td width="15%">Năm học</td>
-                    <td width="7%">Thời gian bắt đầu</td>
-                    <td width="7%">Thời gian kết thúc</td>
+                    <td width="7%">Mã hình thức thi</td>
+                    <td width="15%">Tên hình thức thi</td>
                     <td width="10%">Chức năng</td>
                 </tr>
                 <?php
                 include("connect.php");
-                $sql = "select * from NAMHOC";
+                $sql = "select * from HINHTHUC";
                 $kq = mysqli_query($conn, $sql) or die("Không thể xuất thông tin người dùng " . mysqli_error());
 
                 while ($row = mysqli_fetch_array($kq)) {
@@ -59,14 +57,12 @@ include("header_ad.php");
 
                     echo "<tr>";
                     echo "<td><input type='checkbox'></td>";
-                    echo "<td> " . $row["MaNH"] . "</td>";
-                    $usern = $row["MaNH"];
-                    echo "<td> " . $row["TenNH"] . "</td>";
-                    echo "<td> " . $row["TGBD"] . "</td>";
-                    echo "<td> " . $row["TGKT"] . "</td>";
+                    echo "<td> " . $row["MaHT"] . "</td>";
+                    $usern = $row["MaHT"];
+                    echo "<td> " . $row["TenHT"] . "</td>";
                     echo "<td class='table-icon'>
-                    <a href='sua_namhoc.php?user=$usern'><button><ion-icon name='create-outline'></ion-icon></button></a>
-                    <a href='xoa_namhoc.php?user=$usern'><button><ion-icon name='trash-outline'></button></ion-icon></a>
+                    <a href='sua_hinhthuc.php?user=$usern'><button><ion-icon name='create-outline'></ion-icon></button></a>
+                    <a href='xoa_hinhthuc.php?user=$usern'><button><ion-icon name='trash-outline'></button></ion-icon></a>
                     </td>";
                     echo "</tr>";
                 }

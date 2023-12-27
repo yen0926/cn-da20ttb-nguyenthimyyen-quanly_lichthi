@@ -15,13 +15,6 @@ $row = mysqli_fetch_array($kq);
             <label> Thêm  năm học</label>
         </div>
 
-
-        <div class="table">
-            <div> <label> Mã năm học: </label>
-                <input type="text" name="MaNH" value="<?php echo $row["MaNH"]; ?>">
-            </div>
-        </div>
-
         <div class="table">
             <div> <label> Năm học: </label>
                 <input type="text" name="TenNH" value="<?php echo $row["TenNH"]; ?>">

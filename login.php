@@ -81,8 +81,8 @@
   </style>
 </head>
 <body>
-    <div align="left" class="login-container">
-      <img align="center" src="image/tvu_set.jpg" alt="logo">
+    <div class="login-container">
+      <img src="image/tvu_set.jpg" alt="logo">
       <h2>Đăng nhập</h2>
       <form action="login_handling.php" method="post">
         <div class="input-group">

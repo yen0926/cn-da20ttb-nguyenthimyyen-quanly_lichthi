@@ -75,7 +75,7 @@ if (!isset($_SESSION["admin"])) {
             </div>
             <div class="s-left">
                 <a href="ql_bomon.php" class="s-left-item">
-                    <ion-icon name="business"></ion-icon>
+                <ion-icon name="logo-buffer"></ion-icon>
                     <p>Quản lý bộ môn</p>
                 </a>
                 <a href="ql_giangvien.php" class="s-left-item">
@@ -100,7 +100,7 @@ if (!isset($_SESSION["admin"])) {
                 </a>
                 <a href="ql_hinhthuc.php" class="s-left-item">
                     <ion-icon name="create"></ion-icon>
-                    <p>Quản lý hình thức</p>
+                    <p>Quản lý hình thức thi</p>
                 </a>
                 <a href="ql_xetduyet.php" class="s-left-item">
                     <ion-icon name="checkmark-circle"></ion-icon>
