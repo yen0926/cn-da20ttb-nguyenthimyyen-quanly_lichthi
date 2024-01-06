@@ -1,18 +1,18 @@
 <?php include '../header.php'?>
-<?php include '../../model/AcademicYearDB.php'?>
+<?php include '../../model/AdminAccDB.php'?>
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['del-id'])) {
-        AcademicYearDB::DeleteAcademicYear($_GET['del-id']);
-        header('Location: ' . URL_ROOT . '/admin/academic-year/');
+        AdminAccDB::DeleteAdmin($_GET['del-id']);
+        header('Location: ' . URL_ROOT . '/admin/account-admin/');
     }
-    $academicYearData = AcademicYearDB::GetList(isset($_GET['q']) ? $_GET['q'] : '');
+    $adminData = AdminAccDB::GetList(isset($_GET['q']) ? $_GET['q'] : '');
 ?>
 <div class="midde_cont">
     <div class="container-fluid">
         <div class="row column_title">
             <div class="col-md-12">
                 <div class="page_title">
-                    <h2>Danh sách năm học</h2>
+                    <h2>Danh sách quản trị viên</h2>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                     <div class="table_section padding_infor_info">
                         <div class="table-responsive-sm">
                             <div class="d-flex align-item-center justify-content-between">
-                                <a style="height: max-content;" href="<?=URL_ROOT?>/admin/academic-year/add.php" class="btn btn-success">
+                                <a style="height: max-content;" href="<?=URL_ROOT?>/admin/account-admin/add.php" class="btn btn-success">
                                     <i class='fa fa-plus'></i> Thêm mới
                                 </a>
                                 <form style="width: 300px" class="input-group mb-3">
@@ -37,23 +37,25 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="bg-primary">
-                                        <th class="text-white">Mã năm học</th>
-                                        <th class="text-white">Tên năm học</th>
-                                        <th class="text-white">Tg bắt đầu</th>
-                                        <th class="text-white">Tg kết thúc</th>
-                                        <th width="100" class="text-white">Tính năng</th>
+                                        <th class="text-white">Mã admin</th>
+                                        <th class="text-white">Tên admin</th>
+                                        <th class="text-white">Email</th>
+                                        <th width="100"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($academicYearData as $d) {?>
+                                    <?php foreach ($adminData as $d) {?>
                                     <tr>
-                                        <td><?=$d['MaNH']?></td>
-                                        <td><?=$d['TenNH']?></td>
-                                        <td><?=Helper::DateTime($d['TGBD'], 'date')?></td>
-                                        <td><?=Helper::DateTime($d['TGKT'], 'date')?></td>
+                                        <td><?=$d['MaAD']?></td>
                                         <td>
-                                            <a class="btn btn-warning" href="<?=URL_ROOT?>/admin/academic-year/edit.php?id=<?=$d['MaNH']?>"><i class="fa fa-edit"></i></a>
-                                            <a class="btn btn-danger" href="?del-id=<?=$d['MaNH']?>"><i class="fa fa-trash"></i></a>
+                                            <a href="<?=URL_ROOT . $d['AnhDD']?>" target="_blank">
+                                                <img width="50" src="<?=URL_ROOT . $d['AnhDD']?>" alt="<?=$d['MaAD']?>">
+                                            </a>
+                                            <span class="ml-2"><?=$d['TenAD']?></span>
+                                        </td>
+                                        <td><?=$d['Email']?></td>
+                                        <td>
+                                            <a class="btn btn-danger" href="?del-id=<?=$d['MaAD']?>"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     <?php }?>

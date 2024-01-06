@@ -33,6 +33,12 @@
     <link rel="stylesheet" href="<?=URL_ROOT?>/template/js/semantic.min.css" />
     <!-- fancy box js -->
     <link rel="stylesheet" href="<?=URL_ROOT?>/template/css/jquery.fancybox.css" />
+    <style>
+    b,
+    strong {
+        font-weight: bold;
+    }
+    </style>
 </head>
 
 <body class="inner_page tables_page">
@@ -44,7 +50,11 @@
                     <div class="sidebar-header">
                         <div class="logo_section">
                             <a href="/">
-                                <img class="logo_icon img-responsive" src="<?=URL_ROOT?>/template/images/logo/logo_icon.png" alt="#" />
+                                <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
+                                <img class="logo_icon img-responsive" src="<?=URL_ROOT . $_SESSION['AnhDD']?>" alt="#" />
+                                <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
+                                <img class="logo_icon img-responsive" src="<?=URL_ROOT?>/assets/img/teacher.png" alt="#" />
+                                <?php }?>
                             </a>
                         </div>
                     </div>
@@ -52,10 +62,19 @@
                         <div class="icon_setting"></div>
                         <div class="user_profle_side">
                             <div class="user_img">
-                                <img class="img-responsive" src="<?=URL_ROOT?>/template/images/layout_img/user_img.jpg" alt="#" />
+                                <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
+                                <img class="img-responsive" src="<?=URL_ROOT . $_SESSION['AnhDD']?>" alt="#" />
+                                <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
+                                <img class="img-responsive" src="<?=URL_ROOT?>/assets/img/teacher.png" alt="#" />
+                                <?php }?>
                             </div>
                             <div class="user_info">
-                                <h6>John David</h6>
+                                <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
+                                <h6><?=$_SESSION['TenAD']?></h6>
+                                <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
+                                <h6><?=$_SESSION['HoTenGV']?></h6>
+                                <?php }?>
+
                                 <p><span class="online_animation"></span> Online</p>
                             </div>
                         </div>
@@ -64,63 +83,62 @@
                 <div class="sidebar_blog_2">
                     <ul class="list-unstyled components">
                         <li class="active">
-                            <a href="<?=URL_ROOT?>/admin/dashboard/" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <a href="<?=URL_ROOT?>/admin/dashboard/">
                                 <i class="fa fa-dashboard yellow_color"></i>
                                 <span>Tổng quan</span>
                             </a>
                         </li>
+                        <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
                         <li>
                             <a href="<?=URL_ROOT?>/admin/department/">
-                                <i class="fa fa-clock-o orange_color"></i>
+                                <i class="fa fa-building orange_color"></i>
                                 <span>Bộ môn</span>
                             </a>
                         </li>
                         <li>
                             <a href="<?=URL_ROOT?>/admin/teacher/">
-                                <i class="fa fa-clock-o orange_color"></i>
+                                <i class="fa fa-user-md purple_color"></i>
                                 <span>Giảng viên</span>
                             </a>
                         </li>
                         <li>
                             <a href="<?=URL_ROOT?>/admin/classes/">
-                                <i class="fa fa-clock-o orange_color"></i>
+                                <i class="fa fa-th purple_color2"></i>
                                 <span>Lớp</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?=URL_ROOT?>/admin/academic-year/">
-                                <i class="fa fa-clock-o orange_color"></i>
-                                <span>Năm học</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="<?=URL_ROOT?>/admin/subject/">
-                                <i class="fa fa-clock-o orange_color"></i>
+                                <i class="fa fa-list-alt blue2_color"></i>
                                 <span>Môn học</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?=URL_ROOT?>/admin/semester/">
-                                <i class="fa fa-clock-o orange_color"></i>
-                                <span>Học kỳ</span>
+                            <a href="<?=URL_ROOT?>/admin/academic-year/">
+                                <i class="fa fa-sort-numeric-asc blue1_color"></i>
+                                <span>Năm học</span>
                             </a>
                         </li>
+                        <?php }?>
                         <li>
                             <a href="<?=URL_ROOT?>/admin/exam-schedule/">
-                                <i class="fa fa-clock-o orange_color"></i>
-                                <span>Lịch thi</span>
+                                <i class="fa fa-calendar red_color"></i>
+                                <span>Duyệt lịch thi</span>
                             </a>
                         </li>
+                        <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
                         <li>
-                            <a href="<?=URL_ROOT?>/auth/logout.php">
-                                <i class="fa fa-clock-o orange_color"></i>
-                                <span>Đăng xuất</span>
+                            <a href="<?=URL_ROOT?>/admin/account-admin/">
+                                <i class="fa fa-user-secret green_color"></i>
+                                <span>Tài khoản quản trị</span>
                             </a>
                         </li>
+                        <?php }?>
                     </ul>
                 </div>
             </nav>
             <!-- end sidebar -->
+            
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
@@ -133,12 +151,17 @@
                                     <ul class="user_profile_dd">
                                         <li>
                                             <a class="dropdown-toggle" data-toggle="dropdown">
-                                                <img class="img-responsive rounded-circle" src="<?=URL_ROOT?>/template/images/layout_img/user_img.jpg" alt="#" />
-                                                <span class="name_user">John David</span>
+                                                <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
+                                                <img class="img-responsive rounded-circle" src="<?=URL_ROOT . $_SESSION['AnhDD']?>" alt="#" />
+                                                <span class="name_user"><?=$_SESSION['TenAD']?></span>
+                                                <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
+                                                <img class="img-responsive rounded-circle" src="<?=URL_ROOT?>/assets/img/teacher.png" alt="#" />
+                                                <span class="name_user"><?=$_SESSION['HoTenGV']?></span>
+                                                <?php }?>
                                             </a>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="profile.html">Thông tin cá nhân</a>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="<?=URL_ROOT?>/admin/reset-password/">Đổi mật khẩu</a>
+                                                <a class="dropdown-item" href="<?=URL_ROOT?>/login.php">
                                                     Đăng xuất
                                                     <i class="fa fa-sign-out"></i>
                                                 </a>

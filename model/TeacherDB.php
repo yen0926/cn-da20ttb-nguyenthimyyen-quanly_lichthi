@@ -9,13 +9,13 @@ class TeacherDB
 
     public static function GetDataByID($maGV)
     {
-        $sql = "SELECT * FROM giangvien WHERE giangvien.MaBM = bomon.MaBM AND MaGV = '$maGV'";
+        $sql = "SELECT * FROM bomon, giangvien WHERE giangvien.MaBM = bomon.MaBM AND MaGV = '$maGV'";
         return SQLQuery::GetData($sql, ['row' => 0]);
     }
 
-    public static function AddTeacher($hoTenGV, $email, $sdtGV, $maBM)
+    public static function AddTeacher($maGV, $hoTenGV, $email, $sdtGV, $maBM)
     {
-        $sql = "INSERT INTO giangvien (HoTenGV, Email, SdtGV, MaBM) VALUES ('$hoTenGV', '$email', '$sdtGV', '$maBM')";
+        $sql = "INSERT INTO giangvien (MaGV, HoTenGV, Email, MatKhauGV, SdtGV, MaBM) VALUES ('$maGV', '$hoTenGV', '$email', '202cb962ac59075b964b07152d234b70', '$sdtGV', '$maBM')";
         return SQLQuery::NonQuery($sql);
     }
 

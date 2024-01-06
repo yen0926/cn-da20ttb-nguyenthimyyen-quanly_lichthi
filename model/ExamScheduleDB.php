@@ -3,13 +3,19 @@ class ExamScheduleDB
 {
     public static function GetList()
     {
-        $sql = 'SELECT * FROM lichthi';
+        $sql = 'SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop';
+        return SQLQuery::GetData($sql);
+    }
+
+    public static function GetMyTeacher($maGV)
+    {
+        $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.MaGV = '$maGV'";
         return SQLQuery::GetData($sql);
     }
 
     public static function GetDataByID($maLT)
     {
-        $sql = "SELECT * FROM lichthi WHERE MaLT = '$maLT'";
+        $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.MaLT = '$maLT'";
         return SQLQuery::GetData($sql, ['row' => 0]);
     }
 
