@@ -39,8 +39,8 @@
                                     <tr class="bg-primary">
                                         <th class="text-white">Mã năm học</th>
                                         <th class="text-white">Tên năm học</th>
-                                        <th class="text-white">Tg bắt đầu</th>
-                                        <th class="text-white">Tg kết thúc</th>
+                                        <th class="text-white">Thời gian bắt đầu</th>
+                                        <th class="text-white">Thời gian kết thúc</th>
                                         <th width="100" class="text-white">Tính năng</th>
                                     </tr>
                                 </thead>
