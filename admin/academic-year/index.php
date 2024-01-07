@@ -40,7 +40,7 @@
                                         <th class="text-white">Mã năm học</th>
                                         <th class="text-white">Tên năm học</th>
                                         <th class="text-white">Thời gian bắt đầu</th>
-                                        <th class="text-white">Thời gian kt</th>
+                                        <th class="text-white">Thời gian kết thúc</th>
                                         <th class="text-white" width="100">Tính năng</th>
                                     </tr>
                                 </thead>
