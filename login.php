@@ -20,6 +20,7 @@
         if (count($adminUser) > 0) {
             $_SESSION['MaAD'] = $adminUser[0]['MaAD'];
             $_SESSION['TenAD'] = $adminUser[0]['TenAD'];
+            $_SESSION['Email'] = $teacherUser[0]['Email'];
             $_SESSION['AnhDD'] = $adminUser[0]['AnhDD'];
             $_SESSION['LoaiTaiKhoan'] = 'admin';
             header('Location: ' . URL_ROOT . '/admin/dashboard/');
@@ -66,7 +67,7 @@
                 <div class="login_section">
                     <div class="logo_login">
                         <div class="center">
-                            <img width="210" src="<?=URL_ROOT?>/assets/img/tvu_set.jpg" alt="#" />
+                            <img width="450" src="<?=URL_ROOT?>/assets/img/tvu_set.jpg" alt="#" />
                         </div>
                     </div>
                     <div class="login_form">

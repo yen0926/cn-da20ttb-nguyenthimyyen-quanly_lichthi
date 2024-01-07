@@ -1,15 +1,27 @@
 <?php
 class ExamScheduleDB
 {
-    public static function GetList()
+    public static function GetList($query, $startTime = '', $endTime = '', $isActive = null)
     {
-        $sql = 'SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop';
+        if ($startTime != '' && $endTime != '') {
+            $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.NgayBD >= '$startTime' AND lichthi.NgayBD <= '$endTime'";
+        } else if ($isActive != null) {
+            $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.Duyet = $isActive";
+        } else {
+            $sql = 'SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop';
+        }
         return SQLQuery::GetData($sql);
     }
 
-    public static function GetMyTeacher($maGV)
+    public static function GetMyTeacher($maGV, $startTime = '', $endTime = '', $isActive = null)
     {
-        $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.MaGV = '$maGV'";
+        if ($startTime != '' && $endTime != '') {
+            $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.MaGV = '$maGV' AND lichthi.NgayBD >= '$startTime' AND lichthi.NgayBD <= '$endTime'";
+        } else if ($isActive != null) {
+            $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.MaGV = '$maGV' AND lichthi.Duyet = $isActive";
+        } else {
+            $sql = "SELECT * FROM lichthi, hinhthuc, namhoc, hocky, monhoc, giangvien, lop where lichthi.MaHT = hinhthuc.MaHT AND lichthi.MaNH = namhoc.MaNH AND lichthi.MaHK = hocky.MaHK AND lichthi.MaMH = monhoc.MaMH AND lichthi.MaGV = giangvien.MaGV AND lichthi.MaLop = lop.MaLop AND lichthi.MaGV = '$maGV'";
+        }
         return SQLQuery::GetData($sql);
     }
 
@@ -19,13 +31,13 @@ class ExamScheduleDB
         return SQLQuery::GetData($sql, ['row' => 0]);
     }
 
-    public static function AddExamSchedule($tenLT, $ngayBD, $tgThi, $tietBD, $phongThi, $maHT, $maNH, $maHK, $maMH, $maGV, $maLop)
+    public static function AddExamSchedule($tenLT, $ngayBD, $tgThi, $tietBD, $phongThi, $maHT, $maNH, $maHK, $maMH, $maGV, $maLop, $lanThi)
     {
-        $sql = "INSERT INTO lichthi (TenLT, NgayBD, TGThi, TietBD, PhongThi, MaHT, MaNH, MaHK, MaMH, MaGV, MaLop) VALUES ('$tenLT', '$ngayBD', '$tgThi', '$tietBD', '$phongThi', '$maHT', '$maNH', '$maHK', '$maMH', '$maGV', '$maLop')";
+        $sql = "INSERT INTO lichthi (TenLT, NgayBD, TGThi, TietBD, PhongThi, MaHT, MaNH, MaHK, MaMH, MaGV, MaLop, LanThi) VALUES ('$tenLT', '$ngayBD', '$tgThi', '$tietBD', '$phongThi', '$maHT', '$maNH', '$maHK', '$maMH', '$maGV', '$maLop', '$lanThi')";
         return SQLQuery::NonQuery($sql);
     }
 
-    public static function UpdateExamSchedule($maLT, $tenLT, $ngayBD, $tgThi, $tietBD, $phongThi, $maHT, $maNH, $maHK, $maMH, $maGV, $maLop)
+    public static function UpdateExamSchedule($maLT, $tenLT, $ngayBD, $tgThi, $tietBD, $phongThi, $maHT, $maNH, $maHK, $maMH, $maGV, $maLop, $lanThi)
     {
         $sql = "UPDATE lichthi SET TenLT = '$tenLT',
                                     NgayBD = '$ngayBD',
@@ -38,6 +50,7 @@ class ExamScheduleDB
                                     MaMH = '$maMH',
                                     MaGV = '$maGV',
                                     MaLop = '$maLop'
+                                    LanThi = '$lanThi'
                                 WHERE MaLT = '$maLT'";
         return SQLQuery::NonQuery($sql);
     }
@@ -45,6 +58,12 @@ class ExamScheduleDB
     public static function DeleteExamSchedule($maLT)
     {
         $sql = "DELETE FROM lichthi WHERE MaLT = '$maLT'";
+        return SQLQuery::NonQuery($sql);
+    }
+
+    public static function ActiveExamSchedule($maLT, $active)
+    {
+        $sql = "UPDATE lichthi SET Duyet = $active WHERE MaLT = '$maLT'";
         return SQLQuery::NonQuery($sql);
     }
 }

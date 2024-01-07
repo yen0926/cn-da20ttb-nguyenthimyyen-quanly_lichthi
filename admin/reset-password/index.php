@@ -38,10 +38,10 @@
                 <div class="white_shd full margin_bottom_30">
                     <div class="table_section padding_infor_info">
                         <form class="row" method="POST">
-                            <!-- <div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3">
                                 <label class="form-label">Email</label>
-                                <input type="text" class="form-control" name="email" value="<?=$_SESSION['Email']?>">
-                            </div> -->
+                                <input type="text" class="form-control" name="email" value="<?=$_SESSION['Email']?>" readonly>
+                            </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Mật khẩu cũ</label>
                                 <input type="password" class="form-control" name="old-pass">

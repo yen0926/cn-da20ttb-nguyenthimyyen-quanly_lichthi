@@ -8,7 +8,7 @@
 <?php include '../../model/ExamScheduleDB.php'?>
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        ExamScheduleDB::AddExamSchedule($_POST['TenLT'], $_POST['NgayBD'], $_POST['TGThi'], $_POST['TietDB'], $_POST['PhongThi'], $_POST['MaHT'], $_POST['MaNH'], $_POST['MaHK'], $_POST['MaMH'], $_POST['MaGV'], $_POST['MaLop']);
+        ExamScheduleDB::AddExamSchedule($_POST['TenLT'], $_POST['NgayBD'], $_POST['TGThi'], $_POST['TietDB'], $_POST['PhongThi'], $_POST['MaHT'], $_POST['MaNH'], $_POST['MaHK'], $_POST['MaMH'], $_SESSION['LoaiTaiKhoan'] == 'teacher' ? $_SESSION['MaGV'] : $_POST['MaGV'], $_POST['MaLop'], $_POST['LanThi']);
         header('Location: ' . URL_ROOT . '/admin/exam-schedule/');
     }
 
@@ -44,7 +44,12 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Thời gian thi</label>
-                                <input type="time" class="form-control" name="TGThi">
+                                <?php $timeList = [45, 60, 90, 120]?>
+                                <select name="TGThi" class="form-control">
+                                    <?php foreach ($timeList as $t) {?>
+                                    <option value="<?=$t?>"><?=$t?> phút</option>
+                                    <?php }?>
+                                </select>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Tiết bắt đầu</label>
@@ -64,6 +69,13 @@
                                     <?php foreach ($examFormData as $d) {?>
                                     <option value="<?=$d['MaHT']?>"><?=$d['TenHT']?></option>
                                     <?php }?>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Lần thi</label>
+                                <select class="form-control" name="LanThi">\
+                                    <option value="1">Lần 1</option>
+                                    <option value="2">Lần 2</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -90,6 +102,7 @@
                                     <?php }?>
                                 </select>
                             </div>
+                            <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Giảng viên</label>
                                 <select class="form-control" name="MaGV">
@@ -98,6 +111,7 @@
                                     <?php }?>
                                 </select>
                             </div>
+                            <?php } ?>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Lớp</label>
                                 <select class="form-control" name="MaLop">

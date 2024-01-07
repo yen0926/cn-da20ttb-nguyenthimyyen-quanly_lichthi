@@ -13,7 +13,7 @@
         <div class="row column_title">
             <div class="col-md-12">
                 <div class="page_title">
-                    <h2>Thêm giáo viên</h2>
+                    <h2>Thêm giảng viên</h2>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Số điện thoại</label>
-                                <input type="number" class="form-control" name="SdtGV">
+                                <input type="text" class="form-control" name="SdtGV">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Bộ môn</label>

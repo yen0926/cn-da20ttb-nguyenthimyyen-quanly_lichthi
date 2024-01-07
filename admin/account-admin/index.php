@@ -23,9 +23,9 @@
                     <div class="table_section padding_infor_info">
                         <div class="table-responsive-sm">
                             <div class="d-flex align-item-center justify-content-between">
-                                <a style="height: max-content;" href="<?=URL_ROOT?>/admin/account-admin/add.php" class="btn btn-success">
+                                <!-- <a style="height: max-content;" href="/admin/account-admin/add.php" class="btn btn-success">
                                     <i class='fa fa-plus'></i> Thêm mới
-                                </a>
+                                </a> -->
                                 <form style="width: 300px" class="input-group mb-3">
                                     <input type="text" class="form-control" name="q">
                                     <button class="btn btn-primary">
@@ -40,7 +40,7 @@
                                         <th class="text-white">Mã admin</th>
                                         <th class="text-white">Tên admin</th>
                                         <th class="text-white">Email</th>
-                                        <th width="100"></th>
+                                        <th class="text-white" width="100">Tính năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,6 +55,7 @@
                                         </td>
                                         <td><?=$d['Email']?></td>
                                         <td>
+                                            
                                             <a class="btn btn-danger" href="?del-id=<?=$d['MaAD']?>"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

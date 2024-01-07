@@ -40,7 +40,7 @@
                                         <th class="text-white">Mã lớp</th>
                                         <th class="text-white">Tên lớp</th>
                                         <th class="text-white">Bộ môn</th>
-                                        <th width="100"></th>
+                                        <th class="text-white" width="100">Tính năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>

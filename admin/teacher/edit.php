@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Số điện thoại</label>
-                                <input type="number" class="form-control" name="SdtGV" value="<?=$teacher['SdtGV']?>">
+                                <input type="text" class="form-control" name="SdtGV" value="<?=$teacher['SdtGV']?>">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Bộ môn</label>

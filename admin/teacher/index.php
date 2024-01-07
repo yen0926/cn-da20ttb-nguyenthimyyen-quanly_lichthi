@@ -42,7 +42,7 @@
                                         <th class="text-white">Email</th>
                                         <th class="text-white">Số điện thoại</th>
                                         <th class="text-white">Bộ môn</th>
-                                        <th width="100"></th>
+                                        <th class="text-white" width="100">Tính năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>

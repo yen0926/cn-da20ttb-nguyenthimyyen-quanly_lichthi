@@ -39,7 +39,7 @@
                                     <tr class="bg-primary">
                                         <th class="text-white">Mã bộ môn</th>
                                         <th class="text-white">Tên bộ môn</th>
-                                        <th width="100"></th>
+                                        <th class="text-white" width="100">Tính năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>

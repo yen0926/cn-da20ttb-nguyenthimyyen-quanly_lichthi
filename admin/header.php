@@ -10,11 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
     <title>Quản trị viên</title>
     <!-- site icon -->
-    <link rel="icon" href="images/fevicon.png" type="image/png" />
+    <link rel="icon" href="<?=URL_ROOT?>/assets/img/favicon.png" type="image/png" />
     <!-- bootstrap css -->
     <link rel="stylesheet" href="<?=URL_ROOT?>/template/css/bootstrap.min.css" />
     <!-- site css -->
@@ -53,7 +52,7 @@
                                 <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
                                 <img class="logo_icon img-responsive" src="<?=URL_ROOT . $_SESSION['AnhDD']?>" alt="#" />
                                 <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
-                                <img class="logo_icon img-responsive" src="<?=URL_ROOT?>/assets/img/teacher.png" alt="#" />
+                                <img class="logo_icon img-responsive" src="<?=URL_ROOT?>/assets/img/tvu.png" alt="#" />
                                 <?php }?>
                             </a>
                         </div>
@@ -65,7 +64,7 @@
                                 <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
                                 <img class="img-responsive" src="<?=URL_ROOT . $_SESSION['AnhDD']?>" alt="#" />
                                 <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
-                                <img class="img-responsive" src="<?=URL_ROOT?>/assets/img/teacher.png" alt="#" />
+                                <img class="img-responsive" src="<?=URL_ROOT?>/assets/img/tvu.png" alt="#" />
                                 <?php }?>
                             </div>
                             <div class="user_info">
@@ -123,7 +122,7 @@
                         <li>
                             <a href="<?=URL_ROOT?>/admin/exam-schedule/">
                                 <i class="fa fa-calendar red_color"></i>
-                                <span>Duyệt lịch thi</span>
+                                <span>Lịch thi</span>
                             </a>
                         </li>
                         <?php if ($_SESSION['LoaiTaiKhoan'] == 'admin') {?>
@@ -155,13 +154,13 @@
                                                 <img class="img-responsive rounded-circle" src="<?=URL_ROOT . $_SESSION['AnhDD']?>" alt="#" />
                                                 <span class="name_user"><?=$_SESSION['TenAD']?></span>
                                                 <?php } else if ($_SESSION['LoaiTaiKhoan'] == 'teacher') {?>
-                                                <img class="img-responsive rounded-circle" src="<?=URL_ROOT?>/assets/img/teacher.png" alt="#" />
+                                                <img class="img-responsive rounded-circle" src="<?=URL_ROOT?>/assets/img/tvu.png" alt="#" />
                                                 <span class="name_user"><?=$_SESSION['HoTenGV']?></span>
                                                 <?php }?>
                                             </a>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="<?=URL_ROOT?>/admin/reset-password/">Đổi mật khẩu</a>
-                                                <a class="dropdown-item" href="<?=URL_ROOT?>/login.php">
+                                                <a class="dropdown-item" href="<?=URL_ROOT?>/index.php">
                                                     Đăng xuất
                                                     <i class="fa fa-sign-out"></i>
                                                 </a>
